@@ -1,20 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[sub_resource type="CanvasItemMaterial" id=4]
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="Shader" id=1]
 
-[node name="Node2D" type="Node2D" parent="."]
+[sub_resource type="ShaderMaterial" id=2]
+next_pass = SubResource( 4 )
+shader = SubResource( 1 )
 
-[node name="Player" type="Sprite" parent="Node2D"]
-texture = ExtResource( 2 )
-script = ExtResource( 1 )
+[sub_resource type="ImageTexture" id=3]
 
-[node name="Timer" type="Timer" parent="Node2D/Player"]
-wait_time = 2.0
-autostart = true
+[node name="RootScene" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="Node2D"]
-
-[connection signal="timeout" from="Node2D/Player/Timer" to="Node2D/Player" method="_on_Timer_timeout"]
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+scale = Vector2( 150, 150 )
+texture = SubResource( 3 )
