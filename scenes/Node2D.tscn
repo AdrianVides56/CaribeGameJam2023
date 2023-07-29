@@ -14,10 +14,12 @@ extents = Vector2( 513, 9.5 )
 position = Vector2( 511, 408 )
 shape = SubResource( 1 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 44, 279 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 35, 373 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 378 )
+position = Vector2( 273, 378 )
 scale = Vector2( 0.2, 0.2 )
+
+[connection signal="damage" from="enemy" to="Player" method="_on_enemy_damage"]

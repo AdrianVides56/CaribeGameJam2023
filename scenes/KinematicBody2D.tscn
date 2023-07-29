@@ -30,7 +30,7 @@ animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "Attack",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": false,
@@ -45,7 +45,7 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 20 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "Hurt",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 16 ), ExtResource( 18 ) ],
 "loop": true,

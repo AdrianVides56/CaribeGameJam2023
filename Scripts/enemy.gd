@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal damage(value)
+
 var motion = Vector2(0,0)
 var direction = 0
 const gravity = 10
@@ -39,3 +41,7 @@ func _on_playerdetection_body_entered(body):
 		
 func _on_playerdetection_body_exited(_body):
 	target = null
+		
+func _on_damagearea_body_entered(body):
+	if body.is_in_group("Player"):
+		target.damage_crtl(10)
