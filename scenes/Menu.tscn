@@ -9,13 +9,13 @@
 script/source = "extends Control
 
 
-
-func _on_Play_pressed():
-	get_tree().change_scene(\"res://scenes/World.tscn\")
-
-
 func _on_Exit_pressed():
 	get_tree().quit()
+
+
+func _on_play_pressed():
+	get_tree().change_scene(\"res://scenes/World.tscn\")
+
 "
 
 [sub_resource type="DynamicFont" id=3]
@@ -99,3 +99,4 @@ icon = ExtResource( 4 )
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

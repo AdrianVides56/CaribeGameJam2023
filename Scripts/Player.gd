@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 var motion = Vector2()
 var direction = 0
-var speed = 700
-var gravity = 25
-var jump = 600
+var speed = 400
+var gravity = 15
+var jump = 350
 var in_attack :bool
 
 
@@ -21,7 +21,7 @@ func _ready():
 	
 func _physics_process(delta):
 	move()
-	jump()
+	Jump()
 	attack()
 	
 	if current_animation != new_animation:
@@ -72,7 +72,7 @@ func attack():
 	if Input.is_action_pressed("ui_accept"):
 		in_attack = true
 		$Position2D/attackarea/area.disabled = false
-func jump():
+func Jump():
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		motion.y = -jump
 		
