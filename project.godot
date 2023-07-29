@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="CaribeGameJam2023"
+config/name="Caribe Jam"
 config/icon="res://icon.png"
 
 [gui]
