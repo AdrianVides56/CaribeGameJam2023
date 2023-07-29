@@ -34,10 +34,13 @@ func move():
 		direction = 1
 		motion.x = direction*speed
 		$AnimatedSprite.flip_h = false
+		$Position2D.scale.x = 1
 	elif Input.is_action_pressed("ui_left"):
 		direction = -1
 		motion.x = direction*speed
 		$AnimatedSprite.flip_h = true
+		$Position2D.scale.x = -1
+		
 	else:
 		direction = 0
 	motion.x = lerp(motion.x,0,0.3)
@@ -68,7 +71,7 @@ func move():
 func attack():
 	if Input.is_action_pressed("ui_accept"):
 		in_attack = true
-		
+		$Position2D/attackarea/area.disabled = false
 func jump():
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		motion.y = -jump
@@ -93,11 +96,8 @@ func transition_to(new_state):
 		ATTACK:
 			new_animation = "Attack"
 			
-
-		
-
-
 func _on_AnimatedSprite_animation_finished():
 	if anim.animation == "Attack":
 		in_attack = false
+		$Position2D/attackarea/area.disabled = true
 
