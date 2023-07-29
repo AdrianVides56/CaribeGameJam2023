@@ -28,7 +28,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ) ],
-"loop": true,
+"loop": false,
 "name": "dead",
 "speed": 7.0
 }, {
@@ -39,9 +39,9 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 99.0
+radius = 58.4209
 
-[node name="enemy" type="KinematicBody2D"]
+[node name="enemy" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,6 +61,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Position2D"]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="damagearea" type="Area2D" parent="Position2D"]
@@ -71,4 +72,5 @@ shape = SubResource( 4 )
 
 [connection signal="body_entered" from="Position2D/playerdetection" to="." method="_on_playerdetection_body_entered"]
 [connection signal="body_exited" from="Position2D/playerdetection" to="." method="_on_playerdetection_body_exited"]
+[connection signal="animation_finished" from="Position2D/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Position2D/damagearea" to="." method="_on_damagearea_body_entered"]
