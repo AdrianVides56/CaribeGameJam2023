@@ -29,6 +29,7 @@ func _ready():
 	print(global_position.y)
 	
 	
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	move()
 	Jump()
@@ -99,7 +100,12 @@ func attack():
 	if Input.is_action_pressed("ui_accept") and in_hurt == false:
 		in_attack = true
 		$Position2D/attackarea/area.disabled = false
+<<<<<<< HEAD
 func Jump():
+=======
+# warning-ignore:function_conflicts_variable
+func jump():
+>>>>>>> 269cdd56103afc3e9996430abf22c3b2b3a15153
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		motion.y = -jump
 		
