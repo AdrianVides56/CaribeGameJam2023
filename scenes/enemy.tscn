@@ -61,7 +61,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Position2D"]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="damagearea" type="Area2D" parent="Position2D"]
