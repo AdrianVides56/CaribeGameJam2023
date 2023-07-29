@@ -3,15 +3,17 @@ extends KinematicBody2D
 var motion = Vector2()
 var direction = 0
 var speed = 400
-var knockback = 1
+var knockback = 400
 var gravity = 15
 var jump = 350
 var in_attack :bool
 var health :int = 100
 var in_move:bool 
+var in_dead:bool
 
+var target = null
 var in_hurt:bool
-var in_dead:bool 
+
 
 
 
@@ -24,7 +26,7 @@ onready var anim =$AnimatedSprite
 
 func _ready():
 	transition_to(IDLE)
-	print(direction)
+	print(global_position.y)
 	
 	
 func _physics_process(delta):
@@ -32,6 +34,7 @@ func _physics_process(delta):
 	Jump()
 	attack()
 	knockback(direction)
+	Death()
 	
 	
 	if current_animation != new_animation:
@@ -65,29 +68,35 @@ func move(): #Funcion de movimiento
 	
 	#MAQUINA DE ESTADOS
 	
-	if state in [IDLE,JUMP,RUN,FALL,HURT,DEATH,ATTACK] and in_move == true: #De quieto a correr
+	if state in [IDLE,JUMP,RUN,FALL,HURT,DEATH,ATTACK] and in_move == true and !in_dead: #De quieto a correr
 		transition_to(WALK)
 	
-	if state in [JUMP,RUN,FALL,WALK,HURT,DEATH,ATTACK] and in_move == false: #De correr a quieto
+	if state in [JUMP,RUN,FALL,WALK,HURT,DEATH,ATTACK] and in_move == false and !in_dead: #De correr a quieto
 		transition_to(IDLE)
 	
-	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH,ATTACK] and !is_on_floor(): #De quieto o correr a salto
+	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH,ATTACK] and !is_on_floor() and !in_dead: #De quieto o correr a salto
 		transition_to(JUMP)
 		
-	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH] and in_attack: #De quieto o correr a salto
+	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH,ATTACK] and in_dead: #De quieto o correr a salto
+		transition_to(DEATH)
+		
+	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH] and in_attack and !in_dead: #De quieto o correr a salto
 		transition_to(ATTACK)
 	
-	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH] and in_hurt: #De quieto o correr a salto
+	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH] and in_hurt and !in_dead: #De quieto o correr a salto
 		transition_to(HURT)
 	
-	if state in [JUMP,FALL] and is_on_floor(): #De salto a quieto
+	if state in [JUMP,FALL] and is_on_floor() and !in_dead: #De salto a quieto
 		transition_to(IDLE)
 	
-	if state == JUMP and motion.y > 0 and !is_on_floor(): #De salto a caida
+	if state in [IDLE,JUMP,RUN,FALL,WALK,HURT,DEATH] and in_attack and !in_dead: #De quieto o correr a salto
+		transition_to(ATTACK)
+	
+	if state == JUMP and motion.y > 0 and !is_on_floor() and !in_dead: #De salto a caida
 		transition_to(FALL)
 
 func attack():
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("ui_accept") and in_hurt == false:
 		in_attack = true
 		$Position2D/attackarea/area.disabled = false
 func Jump():
@@ -120,12 +129,28 @@ func _on_AnimatedSprite_animation_finished():
 		$Position2D/attackarea/area.disabled = true
 	if anim.animation == "Hurt":
 		in_hurt = false
+
+func Death():
+	if health <= 0:
+		motion.x =0
+		in_dead = true
+		get_tree().paused=true
+	else:
+		in_dead = false
 		
 func knockback(direction):
-	if in_hurt == true:
-		motion.x = lerp(motion.x,speed*-direction,0.5)
+	if in_hurt == true and !in_dead:
+		motion.x = lerp(motion.x,knockback*-direction,0.5)
 
 func damage_crtl(damage:int):
 		health -= damage
 		in_hurt=true
-		
+
+func _on_attackarea_body_entered(body):
+	target = body
+	if body.is_in_group("Enemy"):
+		target.damage_crtl(50)
+
+
+func _on_attackarea_body_exited(body):
+	target = null

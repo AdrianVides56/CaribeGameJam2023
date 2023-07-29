@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/CutsceneController.gd" type="Script" id=1]
 [ext_resource path="res://Background/Clouds/Clouds 2/3.png" type="Texture" id=2]
 [ext_resource path="res://Background/Clouds/Clouds 2/4.png" type="Texture" id=3]
 [ext_resource path="res://Background/Clouds/Clouds 1/1.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/Storyteller.tres" type="Theme" id=5]
 
 [sub_resource type="Animation" id=2]
 resource_name = "PopUp"
@@ -127,6 +128,7 @@ margin_top = -162.0
 margin_right = -288.0
 margin_bottom = -162.0
 rect_min_size = Vector2( 300, 60 )
+theme = ExtResource( 5 )
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
 __meta__ = {
 "_edit_use_anchors_": true,

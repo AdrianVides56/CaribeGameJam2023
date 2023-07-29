@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Titles.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/ParallaxLoading.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Loading.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=3]
+resource_name = "LoadingTxt"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoadingTxt:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoadingTxt:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="LoadingTxt" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -29.5
+margin_right = 120.0
+margin_bottom = 29.5
+theme = ExtResource( 1 )
+text = "loading..."
+align = 1
+valign = 1
+uppercase = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LoadingTxt = SubResource( 3 )
+anims/RESET = SubResource( 4 )
