@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rain.png-06e47f8366b0434559ed3492129396c7.stex"
+path="res://.import/playundido.png-a8eea4fff13b094f2c33221258b88e68.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Image/rain.png"
-dest_files=[ "res://.import/rain.png-06e47f8366b0434559ed3492129396c7.stex" ]
+source_file="res://Image/playundido.png"
+dest_files=[ "res://.import/playundido.png-a8eea4fff13b094f2c33221258b88e68.stex" ]
 
 [params]
 
