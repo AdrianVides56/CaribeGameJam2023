@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2.png-0d3347af6ebe4bbd7d96f3dc83257a6f.stex"
+path="res://.import/Botonblanco.png-4ea7efc8cb8b55d8e3b499cb1aae06b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/Clouds/Clouds 3/2.png"
-dest_files=[ "res://.import/2.png-0d3347af6ebe4bbd7d96f3dc83257a6f.stex" ]
+source_file="res://Background/Botonblanco.png"
+dest_files=[ "res://.import/Botonblanco.png-4ea7efc8cb8b55d8e3b499cb1aae06b3.stex" ]
 
 [params]
 
