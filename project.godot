@@ -14,6 +14,10 @@ config/name="Caribe Jam"
 run/main_scene="res://scenes/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+S="*res://Scripts/autoloads/GlobalV.gd"
+
 [display]
 
 window/dpi/allow_hidpi=true
