@@ -19,6 +19,7 @@ onready var anim =$AnimatedSprite
 func _ready():
 	transition_to(IDLE)
 	
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	move()
 	jump()
@@ -72,6 +73,7 @@ func attack():
 	if Input.is_action_pressed("ui_accept"):
 		in_attack = true
 		$Position2D/attackarea/area.disabled = false
+# warning-ignore:function_conflicts_variable
 func jump():
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		motion.y = -jump

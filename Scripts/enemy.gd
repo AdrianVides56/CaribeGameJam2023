@@ -10,6 +10,7 @@ var target = null
 onready var PosE = $Position2D
 onready var animE = $Position2D/AnimatedSprite
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	attack_move()
 	
