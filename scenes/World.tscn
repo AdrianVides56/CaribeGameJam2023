@@ -23,7 +23,11 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+<<<<<<< Updated upstream
 position = Vector2( 86, 335 )
+=======
+position = Vector2( 85, 335 )
+>>>>>>> Stashed changes
 scale = Vector2( 0.5, 0.5 )
 
 [node name="llamas9" type="Node2D" parent="."]
