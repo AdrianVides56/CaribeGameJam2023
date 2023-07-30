@@ -36,6 +36,7 @@ func _ready():
 	
 	
 	
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	move()
 	Jump()
@@ -165,6 +166,9 @@ func Death():
 	else:
 		in_dead = false
 		
+# warning-ignore:function_conflicts_variable
+# warning-ignore:shadowed_variable
+# warning-ignore:function_conflicts_variable
 func knockback(direction):
 	if in_hurt == true and !in_dead:
 		motion.x = lerp(motion.x,knockback*-direction,0.5)
@@ -182,6 +186,7 @@ func _on_attackarea_body_entered(body):
 		target.damage_crtl(50)
 
 
+# warning-ignore:unused_argument
 func _on_attackarea_body_exited(body):
 	target = null
 
