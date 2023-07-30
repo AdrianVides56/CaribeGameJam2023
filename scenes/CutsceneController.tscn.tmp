@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Animations/Storyteller.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Cutscene Intro/cofre.png" type="Texture" id=2]
+[ext_resource path="res://scenes/TestAnimation.gd" type="Script" id=3]
+[ext_resource path="res://assets/Cutscene Intro/Guerra-fondo.png" type="Texture" id=4]
+[ext_resource path="res://assets/Cutscene Intro/intro 1.png" type="Texture" id=5]
+[ext_resource path="res://assets/Cutscene Intro/abuelo2.png" type="Texture" id=6]
+[ext_resource path="res://assets/Cutscene Intro/Ente del mal jammmm1 (1).png" type="Texture" id=7]
+[ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Music/cancion2menu.mp3" type="AudioStream" id=9]
+[ext_resource path="res://scenes/MenuPause.tscn" type="PackedScene" id=10]
+
+[node name="CutsceneController" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
+
+[node name="First" parent="." instance=ExtResource( 1 )]
+textToDisplay = "Durante incontables siglos, dos clanes han estado en guerra. "
+imageToDisplay = ExtResource( 4 )
+textColor = Color( 0.854902, 0.0235294, 1, 1 )
+
+[node name="Second" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "El valioso cofre que resguarda la magica Corona del Rey de los Yakumata fue robado cuando solo existian dos clanes: los Yukamata y los Aligunas. "
+imageToDisplay = ExtResource( 2 )
+XImageOffset = 75
+
+[node name="Third" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "El rumor de que los Aligunas fueron los responsables del robo esparcio como fuego en el clan de los Yukamata, desatando una guerra que persiste hasta nuestros dias."
+hasImage = false
+imageToDisplay = ExtResource( 6 )
+textColor = Color( 0.576471, 0.686275, 0.792157, 1 )
+
+[node name="Fourth" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "Yo, Aiden, el futuro lider de los Yukamata, tengo un anhelo profundo de buscar la paz entre ambos clanes. "
+imageToDisplay = ExtResource( 5 )
+XImageOffset = 100
+
+[node name="Fifth" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "Mi abuelo Kael, sabio y experimentado, se percato de mi deseo y me confio un orbe capaz de viajar en el tiempo. Al demostrar ser digno portador del orbe, obtengo la habilidad de viajar al pasado y Averiguar el origen de esta interminable guerra, con el proposito de descubrir quién es el verdadero ladron del cofre."
+imageToDisplay = ExtResource( 6 )
+textColor = Color( 0.219608, 0.701961, 0.937255, 1 )
+
+[node name="Sixth" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "Guiado por mi abuelo, me embarcare en  la búsqueda de las piezas perdidas que revelarán la verdad."
+imageToDisplay = ExtResource( 5 )
+XImageOffset = 100
+
+[node name="Seventh" parent="." instance=ExtResource( 1 )]
+textToDisplay = "No podras lograrlo mientras que yo este aqui"
+imageToDisplay = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 300, 0 )
+stream = ExtResource( 9 )
+volume_db = -7.0
+autoplay = true
+
+[node name="MenuPause" parent="." instance=ExtResource( 10 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 300.0
+margin_top = 100.0
+margin_right = 300.0
+margin_bottom = 100.0
+
+[connection signal="animationCompleted" from="First" to="." method="_on_First_animationCompleted"]
+[connection signal="animationStarted" from="First" to="." method="_on_First_animationStarted"]
+[connection signal="animationCompleted" from="Second" to="." method="_on_Second_animationCompleted"]
+[connection signal="animationStarted" from="Second" to="." method="_on_Second_animationStarted"]
+[connection signal="animationCompleted" from="Third" to="." method="_on_Third_animationCompleted"]
+[connection signal="animationStarted" from="Third" to="." method="_on_Third_animationStarted"]
+[connection signal="animationCompleted" from="Fourth" to="." method="_on_Fourth_animationCompleted"]
+[connection signal="animationStarted" from="Fourth" to="." method="_on_Fourth_animationStarted"]
+[connection signal="animationCompleted" from="Fifth" to="." method="_on_Fifth_animationCompleted"]
+[connection signal="animationStarted" from="Fifth" to="." method="_on_Fifth_animationStarted"]
+[connection signal="animationCompleted" from="Sixth" to="." method="_on_Sixth_animationCompleted"]
+[connection signal="animationStarted" from="Sixth" to="." method="_on_Sixth_animationStarted"]
+[connection signal="animationCompleted" from="Seventh" to="." method="_on_Seventh_animationCompleted"]
+[connection signal="animationStarted" from="Seventh" to="." method="_on_Seventh_animationStarted"]
