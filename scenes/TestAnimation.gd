@@ -11,7 +11,7 @@ var animations
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	animations = [get_node("First"), get_node("Second"), get_node("Third"), get_node("Fourth"), get_node("Fifth"), get_node("Sixth")]
+	animations = [get_node("First"), get_node("Second"), get_node("Third"), get_node("Fourth"), get_node("Fifth"), get_node("Sixth"), get_node("Seventh")]
 	currentAnimation = animations[i]
 	animToPlay = currentAnimation
 	canPlayAnim = true
@@ -106,3 +106,13 @@ func _on_Sixth_animationCompleted():
 	pass # Replace with function body.
 
 
+
+
+func _on_Seventh_animationCompleted():
+	OnAnyAnimationCompleted()
+	pass # Replace with function body.
+
+
+func _on_Seventh_animationStarted():
+	OnAnyAnimationStarted()
+	pass # Replace with function body.
