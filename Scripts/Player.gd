@@ -19,8 +19,14 @@ var backx
 var backy
 var fire:bool
 
+
+
 var lastP
 
+var diamondcount = 0 setget setdiamondcount
+func setdiamondcount(value):
+	$CanvasLayer/Label.text = str(value)
+	diamondcount += 1
 
 
 

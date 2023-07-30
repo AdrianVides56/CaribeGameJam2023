@@ -130,7 +130,7 @@ volume_db = -7.0
 position = Vector2( 301, 114 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 11 )
-frame = 5
+frame = 14
 playing = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
