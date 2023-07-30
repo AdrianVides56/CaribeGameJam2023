@@ -16,7 +16,7 @@ func set_is_paused(value):
 func _on_Continue_pressed():
 	self.is_paused = false
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://scenes/Node2D.tscn")
+	pass
 
 
 func _on_Exit_pressed():
