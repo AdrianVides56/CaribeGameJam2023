@@ -1,6 +1,3 @@
 extends Node
 
-var HealthPlayer
-
-func Damage(Damage):
-	HealthPlayer -= Damage
+var HealthPlayer = 100

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://enemy/gelatina/enemigo gelatina saltando4.png" type="Texture" id=1]
 [ext_resource path="res://enemy/gelatina/enemigo gelatina saltando2.png" type="Texture" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://enemy/gelatina/reposo enemigo gelatina 1.png" type="Texture" id=7]
 [ext_resource path="res://enemy/gelatina/reposo enemigo gelatina 2.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/enemy.gd" type="Script" id=9]
+[ext_resource path="res://enemy/gelatina/enemigo gelatina muerte4.png" type="Texture" id=10]
+[ext_resource path="res://enemy/gelatina/enemigo gelatina muerte2.png" type="Texture" id=11]
+[ext_resource path="res://enemy/gelatina/enemigo gelatina muerte1.png" type="Texture" id=12]
+[ext_resource path="res://enemy/gelatina/enemigo gelatina muerte3.png" type="Texture" id=13]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 43.7379
@@ -23,13 +27,21 @@ animations = [ {
 "name": "Walk",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "dead",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 } ]
 
-[node name="enemy" type="KinematicBody2D"]
+[sub_resource type="CircleShape2D" id=4]
+radius = 58.4209
+
+[node name="enemy" type="KinematicBody2D" groups=["Enemy"]]
 script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -49,6 +61,16 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Position2D"]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
+playing = true
+
+[node name="damagearea" type="Area2D" parent="Position2D"]
+
+[node name="area" type="CollisionShape2D" parent="Position2D/damagearea"]
+position = Vector2( 1, 25 )
+shape = SubResource( 4 )
 
 [connection signal="body_entered" from="Position2D/playerdetection" to="." method="_on_playerdetection_body_entered"]
 [connection signal="body_exited" from="Position2D/playerdetection" to="." method="_on_playerdetection_body_exited"]
+[connection signal="animation_finished" from="Position2D/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Position2D/damagearea" to="." method="_on_damagearea_body_entered"]
