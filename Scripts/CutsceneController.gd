@@ -4,6 +4,7 @@ export(String, MULTILINE) var textToDisplay : String
 
 export (bool) var hasImage
 export (Texture) var imageToDisplay
+export (int) var XImageOffset
 
 
 signal animationCompleted
@@ -29,15 +30,32 @@ func _ready():
 
 func _handleImage():
 	if hasImage:
-		$Sprite/RichTextLabel.anchor_left = 0.5
-		$Sprite/RichTextLabel.anchor_top = 1
-		$Sprite/RichTextLabel.anchor_right = 0.5
-		$Sprite/RichTextLabel.anchor_bottom = 1
+		$Sprite/RichTextLabel.anchor_left = 0.057
+		$Sprite/RichTextLabel.anchor_top = 0.642
+		$Sprite/RichTextLabel.anchor_right = 0.944
+		$Sprite/RichTextLabel.anchor_bottom = 0969
 
-		$Sprite/RichTextLabel.margin_left = -576
-		$Sprite/RichTextLabel.margin_top = -250
-		$Sprite/RichTextLabel.margin_right = 0
+		$Sprite/RichTextLabel.margin_left = -268
+		$Sprite/RichTextLabel.margin_top = -162
+		$Sprite/RichTextLabel.margin_right = -288
 		$Sprite/RichTextLabel.margin_bottom = -162
+		
+		
+#		$Sprite/TextureRect.anchor_left = 0.239
+#		$Sprite/TextureRect.anchor_top = 0.073
+#		$Sprite/TextureRect.anchor_right = 0.76
+#		$Sprite/TextureRect.anchor_bottom = 0.604
+##
+#		$Sprite/TextureRect.margin_left = -288
+#		$Sprite/TextureRect.margin_top = -162
+#		$Sprite/TextureRect.margin_right = -288
+#		$Sprite/TextureRect.margin_bottom = -162
+
+		if XImageOffset != 0:
+			$Sprite/TextureRect.rect_position.x += XImageOffset
+#			$Sprite/TextureRect.rect_position = Vector2(-150, -138)
+#
+		$Sprite/TextureRect.rect_size.x = 300
 		
 		$Sprite/TextureRect.visible = true
 	else:
