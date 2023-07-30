@@ -4,7 +4,7 @@ var motion = Vector2()
 var direction = 0
 var speed = 700
 var knockback = 400
-var gravity = 15
+const gravity = 15
 var jump = 500
 var in_attack :bool
 var health :int = 100
@@ -111,6 +111,7 @@ func comeback():
 	if is_on_floor():
 		lastP = Vector2(position.x+(-direction*30),position.y-40)
 		
+
 func Fall():
 	get = $RayCast2D.get_collider()
 	if get != null and get.is_in_group("llamas"):

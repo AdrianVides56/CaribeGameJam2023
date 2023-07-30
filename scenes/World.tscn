@@ -1,13 +1,201 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://obstaculo/torre.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/KinematicBody2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles/bfbf_Mesa de trabajo 1.png" type="Texture" id=3]
 [ext_resource path="res://obstaculo/llamas.tscn" type="PackedScene" id=4]
 [ext_resource path="res://obstaculo/torre2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/volador.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/plataforma.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=8]
+
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 351, 270, 0, 0, 0, 0, 1531, 268 )
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 12.0272, -15.9795 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1149.21, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31, 215.5 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 443, 437.793, 0, 0, 0, 0, 1384, 440.276 )
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Moving"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 880.07, 0.00292969 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2674, 551, 0, 0, 0, 0, 2667, -3 )
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 544.73, 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 536.84, 0.0, 536.84 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 544.73, 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.00305176, 544.73, 0.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "move"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 544.73, 0.0 ]
+}
 
 [node name="World" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -24,7 +212,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 86, 335 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="llamas9" type="Node2D" parent="."]
 
@@ -35,7 +223,7 @@ position = Vector2( 296, 716 )
 position = Vector2( 692, 717 )
 
 [node name="llamas3" parent="llamas9" instance=ExtResource( 4 )]
-position = Vector2( 1100, 721 )
+position = Vector2( 1093, 717 )
 
 [node name="llamas4" parent="llamas9" instance=ExtResource( 4 )]
 position = Vector2( 2969, 721 )
@@ -50,7 +238,28 @@ position = Vector2( 2297, 721 )
 position = Vector2( 1897, 721 )
 
 [node name="llamas8" parent="llamas9" instance=ExtResource( 4 )]
-position = Vector2( 1583, 721 )
+position = Vector2( 1495, 718 )
+
+[node name="llamas9" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 3372, 718 )
+
+[node name="llamas10" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 3767, 718 )
+
+[node name="llamas11" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 4166, 718 )
+
+[node name="llamas12" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 5371, 718 )
+
+[node name="llamas15" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 5775, 718 )
+
+[node name="llamas13" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 4967, 718 )
+
+[node name="llamas14" parent="llamas9" instance=ExtResource( 4 )]
+position = Vector2( 4564, 718 )
 
 [node name="torres" type="Node2D" parent="."]
 
@@ -58,26 +267,125 @@ position = Vector2( 1583, 721 )
 position = Vector2( 117, 619 )
 
 [node name="torre2" parent="torres" instance=ExtResource( 1 )]
-position = Vector2( 2554, 647 )
+position = Vector2( 1866, 615 )
+scale = Vector2( 1.4, 1 )
 
 [node name="torre3" parent="torres" instance=ExtResource( 1 )]
 position = Vector2( 1682, 615 )
 
 [node name="torre4" parent="torres" instance=ExtResource( 1 )]
-position = Vector2( 1317, 668 )
-
-[node name="torre5" parent="torres" instance=ExtResource( 1 )]
-position = Vector2( 834, 660 )
-
-[node name="torre6" parent="torres" instance=ExtResource( 1 )]
-position = Vector2( 462, 700 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 2862, 393 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="StaticBody2D" parent="torres" instance=ExtResource( 5 )]
-position = Vector2( 2106, 515 )
+position = Vector2( 4275, 203 )
+
+[node name="StaticBody2D2" parent="torres" instance=ExtResource( 5 )]
+position = Vector2( 4829, 208 )
 
 [node name="enemys" type="Node2D" parent="."]
 
-[node name="enemy" parent="enemys" instance=ExtResource( 6 )]
-position = Vector2( 2109, 397 )
+[node name="Path2D" type="Path2D" parent="enemys"]
+curve = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="enemys/Path2D"]
+position = Vector2( 351, 270 )
+rotation = -0.00170556
+
+[node name="volador" parent="enemys/Path2D/PathFollow2D" instance=ExtResource( 6 )]
+position = Vector2( 12.0272, -15.9795 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemys/Path2D/PathFollow2D"]
+root_node = NodePath("../volador")
+autoplay = "move"
+playback_speed = 0.15
+anims/RESET = SubResource( 13 )
+anims/move = SubResource( 14 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -20, 205.5 )
+shape = SubResource( 1 )
+
+[node name="plataformas" type="Node2D" parent="."]
+
+[node name="pla1" type="Path2D" parent="plataformas"]
+position = Vector2( 0, 770.667 )
+scale = Vector2( 1, -0.806 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="plataformas/pla1"]
+position = Vector2( 443, 437.793 )
+rotation = 0.00263483
+scale = Vector2( 1, -1.24138 )
+
+[node name="plataforma" parent="plataformas/pla1/PathFollow2D" instance=ExtResource( 7 )]
 scale = Vector2( 0.8, 0.8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="plataformas/pla1/PathFollow2D"]
+root_node = NodePath("../plataforma")
+playback_speed = 0.2
+anims/Moving = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="pla2" type="Path2D" parent="plataformas"]
+position = Vector2( -314, -14 )
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="plataformas/pla2"]
+position = Vector2( 2674, 551 )
+rotation = -1.58335
+
+[node name="plataforma" parent="plataformas/pla2/PathFollow2D" instance=ExtResource( 7 )]
+rotation = 1.57952
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="plataformas/pla2/PathFollow2D"]
+root_node = NodePath("../plataforma")
+autoplay = "move"
+playback_speed = 0.2
+anims/RESET = SubResource( 6 )
+anims/move = SubResource( 7 )
+
+[node name="pla3" type="Path2D" parent="plataformas"]
+position = Vector2( 687, -187 )
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="plataformas/pla3"]
+position = Vector2( 2667.2, 12.7825 )
+rotation = -1.58338
+offset = 536.84
+
+[node name="plataforma" parent="plataformas/pla3/PathFollow2D" instance=ExtResource( 7 )]
+rotation = 1.57952
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="plataformas/pla3/PathFollow2D"]
+root_node = NodePath("../plataforma")
+autoplay = "RESET"
+playback_speed = 0.2
+anims/RESET = SubResource( 8 )
+anims/move = SubResource( 9 )
+
+[node name="pla4" type="Path2D" parent="plataformas"]
+position = Vector2( 1166, -208 )
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="plataformas/pla4"]
+position = Vector2( 2674, 550.998 )
+rotation = -1.58335
+offset = 0.00305176
+
+[node name="plataforma" parent="plataformas/pla4/PathFollow2D" instance=ExtResource( 7 )]
+rotation = 1.57952
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="plataformas/pla4/PathFollow2D"]
+root_node = NodePath("../plataforma")
+autoplay = "RESET"
+playback_speed = 0.2
+anims/RESET = SubResource( 10 )
+anims/move = SubResource( 11 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
