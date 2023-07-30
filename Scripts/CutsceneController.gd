@@ -5,6 +5,7 @@ export(String, MULTILINE) var textToDisplay : String
 export (bool) var hasImage
 export (Texture) var imageToDisplay
 export (int) var XImageOffset
+export (Color) var textColor
 
 
 signal animationCompleted
@@ -22,10 +23,11 @@ func _ready():
 
 	if !textToDisplay.empty():
 		$Sprite/RichTextLabel.text = textToDisplay
+	if textColor != Color.black:
+		$Sprite/RichTextLabel.add_color_override("default_color", textColor)
 
 	$Sprite/TextureRect.texture = imageToDisplay
 
-	#$AnimationPlayer.play("PopUp")
 	pass # Replace with function body.
 
 func _handleImage():

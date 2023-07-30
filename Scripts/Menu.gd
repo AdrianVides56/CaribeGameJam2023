@@ -5,12 +5,8 @@ func _ready():
 
 func _on_play_pressed():
 # warning-ignore:return_value_discarded
+	get_tree().change_scene("res://scenes/CutsceneController.tscn")
 	pass
-
-
-func _on_Opciones_pressed():
-	pass # Replace with function body.
-
 
 
 func _on_Salir_pressed():

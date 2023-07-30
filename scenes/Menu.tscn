@@ -1,12 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Logo/nexus_2.png" type="Texture" id=1]
 [ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Buttoms_images/playundido.png" type="Texture" id=4]
-[ext_resource path="res://Buttoms_images/opcionesundido.png" type="Texture" id=5]
 [ext_resource path="res://Music/Menu Music.mp3" type="AudioStream" id=6]
-[ext_resource path="res://Buttoms_images/opciones.png" type="Texture" id=7]
 [ext_resource path="res://Buttoms_images/PLAY.png" type="Texture" id=8]
 [ext_resource path="res://Logo/nexus_3.png" type="Texture" id=9]
 [ext_resource path="res://Logo/nexus_4.png" type="Texture" id=10]
@@ -25,20 +23,6 @@ region_rect = Rect2( 0, 0, 818, 131 )
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 818, 131 )
-expand_margin_top = 16.0
-
-[sub_resource type="StyleBoxTexture" id=8]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 818, 131 )
-expand_margin_top = 12.0
-
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 818, 131 )
-
-[sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 818, 131 )
 expand_margin_top = 16.0
 
@@ -87,89 +71,67 @@ size_flags_horizontal = 0
 alignment = 1
 
 [node name="play" type="Button" parent="VBoxContainer"]
-margin_top = 4.0
+margin_top = 19.0
 margin_right = 501.0
-margin_bottom = 18.0
+margin_bottom = 33.0
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 22.0
+margin_top = 37.0
 margin_right = 501.0
-margin_bottom = 22.0
+margin_bottom = 37.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 26.0
+margin_top = 41.0
 margin_right = 501.0
-margin_bottom = 26.0
+margin_bottom = 41.0
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 30.0
+margin_top = 45.0
 margin_right = 501.0
-margin_bottom = 30.0
-
-[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 34.0
-margin_right = 501.0
-margin_bottom = 34.0
-
-[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 38.0
-margin_right = 501.0
-margin_bottom = 38.0
-
-[node name="Opciones" type="Button" parent="VBoxContainer"]
-margin_top = 42.0
-margin_right = 501.0
-margin_bottom = 56.0
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-icon_align = 1
-
-[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 60.0
-margin_right = 501.0
-margin_bottom = 60.0
+margin_bottom = 45.0
 
 [node name="MarginContainer10" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 64.0
+margin_top = 49.0
 margin_right = 501.0
-margin_bottom = 64.0
+margin_bottom = 49.0
 
 [node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 68.0
+margin_top = 53.0
 margin_right = 501.0
-margin_bottom = 68.0
+margin_bottom = 53.0
 
 [node name="MarginContainer8" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 72.0
+margin_top = 57.0
 margin_right = 501.0
-margin_bottom = 72.0
+margin_bottom = 57.0
 
 [node name="MarginContainer9" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 76.0
+margin_top = 61.0
 margin_right = 501.0
-margin_bottom = 76.0
+margin_bottom = 61.0
 
 [node name="Salir" type="Button" parent="VBoxContainer"]
-margin_top = 80.0
+margin_top = 65.0
 margin_right = 501.0
-margin_bottom = 94.0
+margin_bottom = 79.0
 custom_styles/hover = SubResource( 12 )
 custom_styles/pressed = SubResource( 13 )
 custom_styles/normal = SubResource( 14 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 300, 0 )
 stream = ExtResource( 6 )
+volume_db = -7.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 301, 114 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 11 )
+frame = 11
 playing = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_Opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_Salir_pressed"]

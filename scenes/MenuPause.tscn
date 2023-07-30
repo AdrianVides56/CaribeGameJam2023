@@ -50,7 +50,7 @@ script = ExtResource( 5 )
 [node name="back" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.207843 )
+color = Color( 0.027451, 0, 0.14902, 0.862745 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5

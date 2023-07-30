@@ -1,50 +1,74 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Animations/Storyteller.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Logo/nexus_4.png" type="Texture" id=2]
+[ext_resource path="res://assets/Cutscene Intro/cofre.png" type="Texture" id=2]
 [ext_resource path="res://scenes/TestAnimation.gd" type="Script" id=3]
-[ext_resource path="res://Player/Cuando se lastimaaa Juego Jam2.png" type="Texture" id=4]
-[ext_resource path="res://Player/ataque game jam4.png" type="Texture" id=5]
-[ext_resource path="res://Player/Hurt/Cuando se lastima Juego Jam2.png" type="Texture" id=6]
+[ext_resource path="res://assets/Cutscene Intro/Guerra-fondo.png" type="Texture" id=4]
+[ext_resource path="res://assets/Cutscene Intro/intro 1.png" type="Texture" id=5]
+[ext_resource path="res://assets/Cutscene Intro/abuelo2.png" type="Texture" id=6]
 [ext_resource path="res://enemy/gelatina/enemigo gelatina muerte2.png" type="Texture" id=7]
-[ext_resource path="res://Background/flecha.png" type="Texture" id=8]
+[ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Music/Menu Music.mp3" type="AudioStream" id=9]
+[ext_resource path="res://scenes/MenuPause.tscn" type="PackedScene" id=10]
 
 [node name="CutsceneController" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
+
 [node name="First" parent="." instance=ExtResource( 1 )]
-textToDisplay = "         La guerra entre dos clanes ha durado mas de 3 siglos..."
-imageToDisplay = ExtResource( 2 )
+textToDisplay = "La guerra entre dos clanes ha durado mas de 3 siglos..."
+imageToDisplay = ExtResource( 4 )
+textColor = Color( 0.854902, 0.0235294, 1, 1 )
 
 [node name="Second" parent="." instance=ExtResource( 1 )]
 visible = false
 textToDisplay = "El cofre que contiene la Corona magica del Rey de los Yakumata fue robado, y solo habian quedado dos clanes en aquel entonces, asi formando una guerra interminable hasta el dia de hoy."
-imageToDisplay = ExtResource( 4 )
-XImageOffset = 100
+imageToDisplay = ExtResource( 2 )
+XImageOffset = 75
 
 [node name="Third" parent="." instance=ExtResource( 1 )]
 visible = false
 textToDisplay = "Pero gracias a mi abuelo Kael y su basta sabiduria, me dio el artefacto del tiempo y ahora puedo viajar en el tiempo y ver el origen de la guerra para asi poder evitarla."
 imageToDisplay = ExtResource( 6 )
-XImageOffset = 100
+textColor = Color( 0.576471, 0.686275, 0.792157, 1 )
 
 [node name="Fourth" parent="." instance=ExtResource( 1 )]
 visible = false
 textToDisplay = "Tengo que resolver este misterio para poder descubrir la verdad"
-imageToDisplay = ExtResource( 8 )
+imageToDisplay = ExtResource( 5 )
 XImageOffset = 100
 
 [node name="Fifth" parent="." instance=ExtResource( 1 )]
 visible = false
-textToDisplay = "		Esta guerra acabará cuando yo quiera..."
+textToDisplay = "		Esta guerra acabara cuando yo quiera..."
+hasImage = false
 imageToDisplay = ExtResource( 7 )
 XImageOffset = 100
+textColor = Color( 0.219608, 0.701961, 0.937255, 1 )
 
 [node name="Sixth" parent="." instance=ExtResource( 1 )]
 visible = false
 textToDisplay = "Acompañame en esta aventura"
 imageToDisplay = ExtResource( 5 )
 XImageOffset = 100
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 300, 0 )
+stream = ExtResource( 9 )
+volume_db = -7.0
+autoplay = true
+
+[node name="MenuPause" parent="." instance=ExtResource( 10 )]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 300.0
+margin_top = 100.0
+margin_right = 300.0
+margin_bottom = 100.0
 
 [connection signal="animationCompleted" from="First" to="." method="_on_First_animationCompleted"]
 [connection signal="animationStarted" from="First" to="." method="_on_First_animationStarted"]
