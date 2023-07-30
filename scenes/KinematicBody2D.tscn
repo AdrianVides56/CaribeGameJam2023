@@ -38,7 +38,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
-"loop": true,
+"loop": false,
 "name": "Fall",
 "speed": 5.0
 }, {
@@ -64,14 +64,21 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 49, 70 )
+extents = Vector2( 64, 70 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 3, 3 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.4
+editor_draw_drag_margin = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -4.5, 47.5 )
@@ -80,6 +87,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Attack"
+frame = 1
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -91,7 +99,7 @@ enabled = true
 [node name="attackarea" type="Area2D" parent="Position2D"]
 
 [node name="area" type="CollisionShape2D" parent="Position2D/attackarea"]
-position = Vector2( 83, 47 )
+position = Vector2( 98, 47 )
 shape = SubResource( 3 )
 disabled = true
 

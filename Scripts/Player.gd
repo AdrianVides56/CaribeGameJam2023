@@ -4,7 +4,7 @@ var motion = Vector2()
 var direction = 0
 var speed = 700
 var knockback = 400
-var gravity = 15
+const gravity = 15
 var jump = 500
 var in_attack :bool
 var health :int = 100

@@ -52,7 +52,7 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Position2D" type="Position2D" parent="."]
