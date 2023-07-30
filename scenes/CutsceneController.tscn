@@ -17,7 +17,7 @@ script = ExtResource( 3 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
 
 [node name="First" parent="." instance=ExtResource( 1 )]
-textToDisplay = "La guerra entre dos clanes ha durado mas de 3 siglos..."
+textToDisplay = "Durante incontables siglos, dos clanes han estado en guerra. El valioso cofre que resguarda la mágica Corona del Rey de los Yakumata fue robado cuando solo existían dos clanes: los Yukamata y los Aligunas. El rumor de que los Aligunas fueron los responsables del robo esparció como fuego en el clan de los Yukamata, desatando una guerra que persiste hasta nuestros días."
 imageToDisplay = ExtResource( 4 )
 textColor = Color( 0.854902, 0.0235294, 1, 1 )
 
