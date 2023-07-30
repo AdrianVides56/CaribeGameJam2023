@@ -1,21 +1,60 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Animations/Storyteller.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Player/Death/muerte Juego Jam1.png" type="Texture" id=2]
+[ext_resource path="res://Logo/nexus_4.png" type="Texture" id=2]
 [ext_resource path="res://scenes/TestAnimation.gd" type="Script" id=3]
+[ext_resource path="res://Player/Cuando se lastimaaa Juego Jam2.png" type="Texture" id=4]
+[ext_resource path="res://Player/ataque game jam4.png" type="Texture" id=5]
+[ext_resource path="res://Player/Hurt/Cuando se lastima Juego Jam2.png" type="Texture" id=6]
+[ext_resource path="res://enemy/gelatina/enemigo gelatina muerte2.png" type="Texture" id=7]
+[ext_resource path="res://Background/flecha.png" type="Texture" id=8]
 
 [node name="CutsceneController" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="First" parent="." instance=ExtResource( 1 )]
-textToDisplay = "Siglos después, el protagonista, un miembro valiente del Clan de la Luna, descubre el pergamino en los archivos ancestrales del clan. Inspirado por la idea de poner fin a la guerra y llevar la paz a su tierra, se embarca en una peligrosa búsqueda para encontrar el cofre y desentrañar los secretos del Orbe Temporal. A lo largo de su odisea, el protagonista enfrentará desafíos, resolverá rompecabezas y demostrará su nobleza y valor para demostrar que es digno de poseer el artefacto y utilizarlo con sabiduría para forjar un futuro de armonía y unidad."
-hasImage = false
+textToDisplay = "         La guerra entre dos clanes ha durado mas de 3 siglos..."
 imageToDisplay = ExtResource( 2 )
 
 [node name="Second" parent="." instance=ExtResource( 1 )]
 visible = false
-textToDisplay = "Kael escondió el cofre en un lugar seguro, protegiéndolo con una serie de enigmas y guardianes que solo alguien digno y resuelto podría superar. Además, dejó una pista en un antiguo pergamino que decía: \"Aquel que busca paz en el pasado encontrará el camino hacia el Orbe del Tiempo\"."
+textToDisplay = "El cofre que contiene la Corona magica del Rey de los Yakumata fue robado, y solo habian quedado dos clanes en aquel entonces, asi formando una guerra interminable hasta el dia de hoy."
+imageToDisplay = ExtResource( 4 )
+XImageOffset = 100
+
+[node name="Third" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "Pero gracias a mi abuelo Kael y su basta sabiduria, me dio el artefacto del tiempo y ahora puedo viajar en el tiempo y ver el origen de la guerra para asi poder evitarla."
+imageToDisplay = ExtResource( 6 )
+XImageOffset = 100
+
+[node name="Fourth" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "Tengo que resolver este misterio para poder descubrir la verdad"
+imageToDisplay = ExtResource( 8 )
+XImageOffset = 100
+
+[node name="Fifth" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "		Esta guerra acabará cuando yo quiera..."
+imageToDisplay = ExtResource( 7 )
+XImageOffset = 100
+
+[node name="Sixth" parent="." instance=ExtResource( 1 )]
+visible = false
+textToDisplay = "Acompañame en esta aventura"
+imageToDisplay = ExtResource( 5 )
+XImageOffset = 100
 
 [connection signal="animationCompleted" from="First" to="." method="_on_First_animationCompleted"]
+[connection signal="animationStarted" from="First" to="." method="_on_First_animationStarted"]
 [connection signal="animationCompleted" from="Second" to="." method="_on_Second_animationCompleted"]
 [connection signal="animationStarted" from="Second" to="." method="_on_Second_animationStarted"]
+[connection signal="animationCompleted" from="Third" to="." method="_on_Third_animationCompleted"]
+[connection signal="animationStarted" from="Third" to="." method="_on_Third_animationStarted"]
+[connection signal="animationCompleted" from="Fourth" to="." method="_on_Fourth_animationCompleted"]
+[connection signal="animationStarted" from="Fourth" to="." method="_on_Fourth_animationStarted"]
+[connection signal="animationCompleted" from="Fifth" to="." method="_on_Fifth_animationCompleted"]
+[connection signal="animationStarted" from="Fifth" to="." method="_on_Fifth_animationStarted"]
+[connection signal="animationCompleted" from="Sixth" to="." method="_on_Sixth_animationCompleted"]
+[connection signal="animationStarted" from="Sixth" to="." method="_on_Sixth_animationStarted"]
