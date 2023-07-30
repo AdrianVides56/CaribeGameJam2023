@@ -33,7 +33,7 @@ onready var anim =$AnimatedSprite
 
 func _ready():
 	transition_to(IDLE)
-	
+	$CanvasLayer/AnimatedSprite.play("idle")
 	
 	
 # warning-ignore:unused_argument
@@ -45,7 +45,7 @@ func _physics_process(delta):
 	Death()
 	Fall()
 	comeback()
-	print(health)
+	
 	
 	
 	if current_animation != new_animation:
