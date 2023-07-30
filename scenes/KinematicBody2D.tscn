@@ -82,6 +82,10 @@ animation = "Attack"
 frame = 3
 playing = true
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 99 )
+enabled = true
+
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="attackarea" type="Area2D" parent="Position2D"]

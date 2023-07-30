@@ -110,6 +110,7 @@ func comeback():
 	if is_on_floor():
 		lastP = Vector2(position.x+(-direction*30),position.y-40)
 		
+
 func Fall():
 	get = $RayCast2D.get_collider()
 	if get != null and get.is_in_group("llamas"):
