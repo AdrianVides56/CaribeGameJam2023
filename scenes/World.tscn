@@ -317,7 +317,7 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="plataformas/pla1"]
 position = Vector2( 443, 437.793 )
-rotation = 0.00263483
+rotation = 0.00261924
 scale = Vector2( 1, -1.24138 )
 
 [node name="plataforma" parent="plataformas/pla1/PathFollow2D" instance=ExtResource( 7 )]

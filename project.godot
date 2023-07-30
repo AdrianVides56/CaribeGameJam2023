@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 S="*res://Scripts/autoloads/GlobalV.gd"
+Diamond="*res://Scripts/autoloads/DiamondCount.gd"
 
 [display]
 
