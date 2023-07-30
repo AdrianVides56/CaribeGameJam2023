@@ -110,7 +110,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Attack"
-frame = 3
 playing = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
