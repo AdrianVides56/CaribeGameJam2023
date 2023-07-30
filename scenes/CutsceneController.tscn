@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/Cutscene Intro/abuelo2.png" type="Texture" id=6]
 [ext_resource path="res://enemy/gelatina/enemigo gelatina muerte2.png" type="Texture" id=7]
 [ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Music/Menu Music.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Music/cancion2menu.mp3" type="AudioStream" id=9]
 [ext_resource path="res://scenes/MenuPause.tscn" type="PackedScene" id=10]
 
 [node name="CutsceneController" type="Node2D"]

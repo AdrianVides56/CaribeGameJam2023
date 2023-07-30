@@ -11,6 +11,7 @@ func _unhandled_input(event):
 func set_is_paused(value):
 	is_paused = value
 	visible = is_paused
+	emit_signal("pauseToggle")
 
 
 func _on_Continue_pressed():

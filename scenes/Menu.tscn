@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/ParallaxBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Buttoms_images/playundido.png" type="Texture" id=4]
-[ext_resource path="res://Music/Menu Music.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Music/cancion2menu.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Buttoms_images/PLAY.png" type="Texture" id=8]
 [ext_resource path="res://Logo/nexus_3.png" type="Texture" id=9]
 [ext_resource path="res://Logo/nexus_4.png" type="Texture" id=10]
@@ -123,14 +123,14 @@ custom_styles/normal = SubResource( 14 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 300, 0 )
-stream = ExtResource( 6 )
+stream = ExtResource( 5 )
 volume_db = -7.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 301, 114 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 11 )
-frame = 11
+frame = 1
 playing = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
