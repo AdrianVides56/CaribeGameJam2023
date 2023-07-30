@@ -388,6 +388,7 @@ position = Vector2( 86, 335 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="MenuPause" parent="Player" instance=ExtResource( 10 )]
+visible = false
 margin_top = -75.0
 margin_bottom = -75.0
 rect_scale = Vector2( 5, 5 )
