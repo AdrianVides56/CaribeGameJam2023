@@ -2,17 +2,24 @@ extends KinematicBody2D
 
 var motion = Vector2()
 var direction = 0
-var speed = 400
+var speed = 700
 var knockback = 400
 var gravity = 15
-var jump = 350
+var jump = 500
 var in_attack :bool
 var health :int = 100
 var in_move:bool 
 var in_dead:bool
-
+var inmunity:bool
 var target = null
 var in_hurt:bool
+var get
+var get2
+var backx
+var backy
+var fire:bool
+
+var lastP
 
 
 
@@ -26,16 +33,18 @@ onready var anim =$AnimatedSprite
 
 func _ready():
 	transition_to(IDLE)
-	print(global_position.y)
 	
 	
-# warning-ignore:unused_argument
+	
 func _physics_process(delta):
 	move()
 	Jump()
 	attack()
 	knockback(direction)
 	Death()
+	Fall()
+	comeback()
+	print(health)
 	
 	
 	if current_animation != new_animation:
@@ -94,19 +103,29 @@ func move(): #Funcion de movimiento
 		transition_to(ATTACK)
 	
 	if state == JUMP and motion.y > 0 and !is_on_floor() and !in_dead: #De salto a caida
+		comeback()
 		transition_to(FALL)
+
+func comeback():
+	if is_on_floor():
+		lastP = Vector2(position.x+(-direction*30),position.y-40)
+		
+func Fall():
+	get = $RayCast2D.get_collider()
+	if get != null and get.is_in_group("llamas"):
+		damage_crtl(10)
+		revive()
+		
+func revive():
+	position = lastP
 
 func attack():
 	if Input.is_action_pressed("ui_accept") and in_hurt == false:
 		in_attack = true
 		$Position2D/attackarea/area.disabled = false
-<<<<<<< HEAD
+		
 func Jump():
-=======
-# warning-ignore:function_conflicts_variable
-func jump():
->>>>>>> 269cdd56103afc3e9996430abf22c3b2b3a15153
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and is_on_floor() and !in_dead:
 		motion.y = -jump
 		
 func transition_to(new_state): 
@@ -135,12 +154,13 @@ func _on_AnimatedSprite_animation_finished():
 		$Position2D/attackarea/area.disabled = true
 	if anim.animation == "Hurt":
 		in_hurt = false
+	if anim.animation == "dead":
+		get_tree().paused = true
 
 func Death():
 	if health <= 0:
 		motion.x =0
 		in_dead = true
-		get_tree().paused=true
 	else:
 		in_dead = false
 		
@@ -149,8 +169,11 @@ func knockback(direction):
 		motion.x = lerp(motion.x,knockback*-direction,0.5)
 
 func damage_crtl(damage:int):
+	if inmunity == false:
 		health -= damage
 		in_hurt=true
+		inmunity = true
+		$Timer.start()
 
 func _on_attackarea_body_entered(body):
 	target = body
@@ -160,3 +183,7 @@ func _on_attackarea_body_entered(body):
 
 func _on_attackarea_body_exited(body):
 	target = null
+
+
+func _on_Timer_timeout():
+	inmunity = false

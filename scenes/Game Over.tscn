@@ -111,7 +111,5 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/normal = SubResource( 7 )
 
-[connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_Exit_pressed"]
