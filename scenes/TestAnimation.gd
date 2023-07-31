@@ -32,7 +32,8 @@ func PlayNextAnim():
 		currentAnimation = animToPlay
 		animToPlay.PlayAnimation()
 	else:
-		get_tree().change_scene("res://scenes/TestScenes/World.tscn"
+		get_tree().change_scene("res://scenes/TestScenes/World.tscn")
+
 
 func OnAnyAnimationStarted():
 	canPlayAnim = false

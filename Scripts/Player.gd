@@ -121,7 +121,7 @@ func comeback():
 func Fall():
 	get = $RayCast2D.get_collider()
 	if get != null and get.is_in_group("llamas"):
-		damage_crtl(10)
+		damage_crtl(20)
 		revive()
 		
 func revive():
@@ -162,8 +162,9 @@ func _on_AnimatedSprite_animation_finished():
 		$Position2D/attackarea/area.disabled = true
 	if anim.animation == "Hurt":
 		in_hurt = false
-	if anim.animation == "dead":
-		get_tree().paused = true
+	if anim.animation == "Death":
+#		get_tree().paused = true
+		get_tree().change_scene("res://scenes/Game Over.tscn")
 
 func Death():
 	if health <= 0:

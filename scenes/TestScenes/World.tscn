@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://obstaculo/torre.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/KinematicBody2D.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/MenuPause.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/Diamante.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/portal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/TestScenes/enemy.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=12]
 _data = {
@@ -425,8 +426,26 @@ position = Vector2( 1814, 326 )
 [node name="KinematicBody2D" parent="." instance=ExtResource( 12 )]
 position = Vector2( 4848, -44 )
 
-[node name="AnimatedSprite" parent="KinematicBody2D" index="0"]
-frame = 2
+[node name="enemy" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1802, 325 )
+
+[node name="enemy2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 4257, 75 )
+
+[node name="Diamante7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2831, -7 )
+
+[node name="Diamante8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2342, -39 )
+
+[node name="Diamante9" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3809, 180 )
+
+[node name="Diamante10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 3339, 202 )
+
+[node name="Diamante11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 4266, -52 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="KinematicBody2D/Area2D" to="." method="_on_Area2D_body_entered"]
